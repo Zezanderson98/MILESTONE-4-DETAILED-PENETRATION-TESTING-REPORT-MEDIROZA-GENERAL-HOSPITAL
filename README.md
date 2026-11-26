@@ -1091,9 +1091,9 @@ Mediroza-Penetration-Test/
 │   │
 │   ├── application-mapping/
 │   │   ├── SS007-ROBOTS.png
-│   │   ├── SS008-SITEMAP.png
-│   │   ├── SS010-SITE-MAP.png
-│   │   ├── SS011-ENTRY-POINTS.png
+│   │   ├── SS008A-SITEMAP.png
+│   │   ├── SS08B-SITE-MAP.png
+│   │   
 │   │   ├── SS012-GOBUSTER.png
 │   │   └── SS013-WHATWEB-FORMS.png
 │   │
@@ -1104,7 +1104,7 @@ Mediroza-Penetration-Test/
 │   │   ├── SS017-DATABASE-BACKUP.png
 │   │   ├── SS018-PATIENT-PORTAL.png
 │   │   ├── PDF-PATIENT-DISCOVERED.png
-│   │   └── OLD-PAGE.png
+│   │   
 │   │
 │   ├── milestone-2/
 │   │   │
@@ -1187,18 +1187,7 @@ Mediroza-Penetration-Test/
 
 ---
 
-## 📄 Full Report Navigation
 
-1. [Executive Summary](./report/01-Executive-Summary.md)
-2. [Scope and Methodology](./report/02-Scope-and-Methodology.md)
-3. [Attack Chain Summary](./report/03-Attack-Chain-Summary.md)
-4. [Findings and Proof of Exploitation](./report/04-Findings-and-Proof-of-Exploitation.md)
-5. [Risk Rating Summary](./report/05-Risk-Rating-Summary.md)
-6. [Recommendations and Remediation](./report/06-Recommendations-and-Remediation.md)
-7. [Conclusion](./report/07-Conclusion.md)
-8. [Appendix A: Sensitive Validation Evidence](./report/Appendix-A-Sensitive-Validation-Evidence.md)
-
----
 
 
 ---
