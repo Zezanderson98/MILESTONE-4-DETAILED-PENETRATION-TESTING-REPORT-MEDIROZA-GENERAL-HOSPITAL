@@ -1158,20 +1158,32 @@ Mediroza-Penetration-Test/
 
 
 ---
+## 🔗 Engagement Phase Repositories
+
+| Milestone / Phase | Repository Link | Scope Covered |
+| :--- | :--- | :--- |
+| **Milestone 1.1 — Reconnaissance** | [RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION) | WHOIS, DNS, WAF detection, headers, `security.txt` |
+| **Milestone 1.2 — Application Mapping** | [APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS](https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS) | `robots.txt`, sitemaps, directory brute-forcing, forms |
+| **Milestone 1.3 — Initial Access & Auth** | [INITIAL-ACCESS-AND-AUTHENTICATION-TESTING](https://github.com/Zezanderson98/INITIAL-ACCESS-AND-AUTHENTICATION-TESTING) | Exposed DB backup, legacy directories, SQLi auth bypass |
+| **Milestone 2 — Data Extraction & Recovery** | [DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS](https://github.com/Zezanderson98/DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS) | Encrypted patient PDF hash extraction & password recovery |
+| **Milestone 3 — Critical Data Exposure** | [CRITICAL-DATA-EXPOSURE-ASSESSMENT](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) | Employee salary records & shareholder data exposure |
+
+---
 
 ## 🔍 Summary of Findings
 
-| ID | Finding | Category | Detailed Write-Up |
+| ID | Finding | Severity | Phase Repository (Step-by-Step) |
 | :--- | :--- | :--- | :--- |
-| **F-001** | Infrastructure Intelligence | Reconnaissance | [View Finding](./findings/F-001-Infrastructure-Intelligence.md) |
-| **F-002** | Server Technology Disclosure | Information Disclosure | [View Finding](./findings/F-002-Server-Technology-Disclosure.md) |
-| **F-003** | Missing `security.txt` | Configuration | [View Finding](./findings/F-003-Missing-SecurityTXT.md) |
-| **F-004** | `robots.txt` Sensitive Path Disclosure | Information Disclosure | [View Finding](./findings/F-004-RobotsTXT-Disclosure.md) |
-| **F-005** | Publicly Accessible Database Backup | Sensitive Data Exposure | [View Finding](./findings/F-005-Public-Database-Backup.md) |
-| **F-006** | SQL Injection Authentication Bypass | Broken Authentication | [View Finding](./findings/F-006-SQL-Injection-Authentication-Bypass.md) |
-| **F-007** | Weak PDF Password Protection | Cryptographic / Policy Flaw | [View Finding](./findings/F-007-Weak-PDF-Password-Protection.md) |
-| **F-008** | Employee Salary Information Exposure | Confidentiality Breach | [View Finding](./findings/F-008-Employee-Salary-Exposure.md) |
-| **F-009** | Shareholder Information Exposure | Confidentiality Breach | [View Finding](./findings/F-009-Shareholder-Exposure.md) |
+| **F-001** | Infrastructure Intelligence | Informational | [Reconnaissance Repo](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION) |
+| **F-002** | Server Technology Disclosure | Low | [Reconnaissance Repo](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION) |
+| **F-003** | Missing `security.txt` | Low / Informational | [Application Mapping Repo](https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS) |
+| **F-004** | `robots.txt` Sensitive Path Disclosure | Low / Informational | [Application Mapping Repo](https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS) |
+| **F-005** | Publicly Accessible Database Backup (`/old/mediroza_db_backup_2019.sql`) | **CRITICAL** | [Application Mapping Repo](https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS) / [Initial Access Repo](https://github.com/Zezanderson98/INITIAL-ACCESS-AND-AUTHENTICATION-TESTING) |
+| **F-006** | SQL Injection Authentication Bypass (`/patient/login.php`) | **CRITICAL** | [Initial Access Repo](https://github.com/Zezanderson98/INITIAL-ACCESS-AND-AUTHENTICATION-TESTING) |
+| **F-007** | Weak PDF Password Protection (Patient Reports 1–3) | **HIGH** | [Data Extraction & Recovery Repo](https://github.com/Zezanderson98/DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS) |
+| **F-008** | Employee Salary Information Exposure | **CRITICAL** | [Critical Data Exposure Repo](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) |
+| **F-009** | Shareholder Information Exposure | **CRITICAL** | [Critical Data Exposure Repo](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) |
+
 
 ---
 
