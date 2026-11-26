@@ -113,28 +113,178 @@ Sensitive records discovered during earlier phases were analyzed to determine th
 | RockYou Wordlist | Dictionary Attack Testing |
 
 ---
+# 3. Attack Chain Summary
 
-# 3. Findings and Proof of Exploitation
+The assessment demonstrated how multiple weaknesses could be chained together by an unauthenticated external attacker to achieve unauthorized access to sensitive organizational data.
+
+The attack path progressed through reconnaissance, application mapping, authentication assessment, password recovery, and data exposure validation.
+
+```text
+Reconnaissance
+      │
+      ▼
+Infrastructure Enumeration
+      │
+      ▼
+robots.txt Disclosure
+      │
+      ▼
+Discovery of Hidden Directory (/old/)
+      │
+      ▼
+Directory Listing Enabled
+      │
+      ▼
+Public Exposure of SQL Backup
+      │
+      ▼
+Recovery of Internal Organizational Information
+      │
+      ▼
+Authentication Testing
+      │
+      ▼
+SQL Injection Authentication Bypass
+      │
+      ▼
+Unauthorized Patient Portal Access
+      │
+      ▼
+Retrieval of Protected Patient Reports
+      │
+      ▼
+Offline Password Recovery
+      │
+      ▼
+Access to Confidential Medical Records
+      │
+      ▼
+Review of SQL Backup Contents
+      │
+      ▼
+Recovery of Employee Salary Records
+      │
+      ▼
+Recovery of Shareholder Ownership Records
+```
+
+The successful chaining of these findings significantly increased the impact of the engagement and resulted in unauthorized access to highly sensitive patient, employee, and corporate information.
+
+---
+
+# 4. Findings and Proof of Exploitation
 
 ---
 
 # Finding F-001
 
+## Registrar and Infrastructure Intelligence Disclosure
+
+### Severity
+
+**INFORMATIONAL**
+
+### Description
+
+Reconnaissance activities successfully identified domain registration information, DNS infrastructure, hosting information, and associated communication services.
+
+The following information was identified:
+
+- Domain registrar
+- Public IP address
+- DNS infrastructure
+- Mail infrastructure
+- Technology stack
+- Security controls
+
+### Evidence
+
+- SS001-WHOIS.png
+- SS003-NSLOOKUP.png
+- SS006-DNSRECON.png
+
+### Impact
+
+This information does not directly compromise the application but provides valuable intelligence for attacker reconnaissance and attack planning.
+
+---
+
+# Finding F-002
+
+## Server Technology and Header Disclosure
+
+### Severity
+
+**LOW**
+
+### Description
+
+Technology fingerprinting confirmed the use of LiteSpeed Web Server technology and exposed implementation details through HTTP response headers.
+
+### Evidence
+
+- SS002-WHATWEB.png
+- SS004-CURL-I.png
+
+### Information Identified
+
+```text
+Server: LiteSpeed
+x-turbo-charged-by: LiteSpeed
+HTTP/2 Enabled
+```
+
+### Impact
+
+Technology disclosure assists attackers in identifying platform-specific attack vectors and tailoring subsequent reconnaissance efforts.
+
+---
+
+# Finding F-003
+
+## Missing Vulnerability Disclosure Policy
+
+### Severity
+
+**INFORMATIONAL**
+
+### Description
+
+No security.txt file was present under:
+
+```text
+/.well-known/security.txt
+```
+
+### Evidence
+
+- SS009-SECURITYTXT.png
+
+### Impact
+
+The absence of a formal vulnerability disclosure policy may delay responsible reporting and remediation of future security issues.
+
+---
+
+# Finding F-004
+
 ## Information Disclosure via robots.txt
 
 ### Severity
 
-LOW
+**LOW**
 
 ### Description
 
-The robots.txt file disclosed internal application paths including:
+The robots.txt file disclosed sensitive internal application paths that were not intended for public discovery.
 
-- /patient/
-- /staff/
-- /old/
+### Disclosed Paths
 
-The disclosed legacy directory ultimately contributed to the discovery of additional sensitive resources.
+```text
+/patient/
+/staff/
+/old/
+```
 
 ### Evidence
 
@@ -142,46 +292,42 @@ The disclosed legacy directory ultimately contributed to the discovery of additi
 
 ### Impact
 
-The information disclosure provided valuable intelligence regarding the application structure and increased the efficiency of subsequent attack-surface discovery activities.
+Discovery of the hidden `/old/` directory directly contributed to the identification of the most critical vulnerability discovered during the engagement.
 
 ---
 
-# Finding F-002
+# Finding F-005
 
 ## Public Database Backup Exposure
 
 ### Severity
 
-CRITICAL
+**CRITICAL**
 
 ### Description
 
-Application mapping identified an exposed directory listing within:
+Application mapping identified a publicly accessible SQL backup file located within a directory exposed through robots.txt.
+
+### Affected Resource
 
 ```text
-/old/
+/old/mediroza_db_backup_2019.sql
 ```
-
-The directory exposed a publicly downloadable SQL backup file:
-
-```text
-mediroza_db_backup_2019.sql
-```
-
-No authentication or authorization controls protected access to the file.
 
 ### Proof of Exploitation
 
 ```text
 robots.txt
- ↓
-/old/
- ↓
-Directory Listing
- ↓
-Database Backup Exposure
- ↓
-Sensitive Information Disclosure
+      ↓
+Discovery of /old/
+      ↓
+Open Directory Listing
+      ↓
+Exposure of SQL Backup
+      ↓
+Download Without Authentication
+      ↓
+Sensitive Data Disclosure
 ```
 
 ### Evidence
@@ -192,130 +338,160 @@ Sensitive Information Disclosure
 
 ### Impact
 
-The exposed backup contained organizational information, employee records, salary information, and shareholder data.
+The exposed backup contained:
+
+- Internal HR information
+- Employee records
+- Salary data
+- Shareholder records
+- Corporate ownership information
+- Organizational data
+
+### Root Cause
+
+- Sensitive backup stored within web root
+- Directory indexing enabled
+- No authentication controls protecting backup files
+- Information disclosure through robots.txt
 
 ---
 
-# Finding F-003
+# Finding F-006
 
-## Authentication Bypass
+## Authentication Bypass via SQL Injection
 
 ### Severity
 
-CRITICAL
+**CRITICAL**
+
+### Affected Endpoint
+
+```text
+/patient/login.php
+```
 
 ### Description
 
-Testing identified a vulnerability within the Patient Portal authentication mechanism that allowed authentication controls to be bypassed.
+Authentication controls protecting the Patient Portal were vulnerable to SQL Injection.
 
-Successful exploitation resulted in unauthorized access to the Patient Portal and restricted functionality.
+Testing demonstrated that authentication could be bypassed, resulting in unauthorized access to the Patient Portal without legitimate credentials.
 
 ### Evidence
 
 - SS014-PATIENT-LOGIN.png
 - SS018-PATIENT-PORTAL.png
+- PDF-PATIENT-DISCOVERED.png
 
 ### Impact
 
-The vulnerability allowed unauthorized access to protected patient resources and downloadable reports.
+Successful exploitation resulted in:
+
+- Authentication bypass
+- Unauthorized patient portal access
+- Access to downloadable patient laboratory reports
+- Circumvention of application security controls
+
+### Root Cause
+
+- Insufficient input validation
+- Lack of parameterized SQL queries
+- Insecure authentication implementation
 
 ---
 
-# Finding F-004
+# Finding F-007
 
 ## Weak Password Protection on Patient Reports
 
 ### Severity
 
-HIGH
+**HIGH**
 
 ### Description
 
-Three password-protected PDF laboratory reports were recovered and assessed.
+Three password-protected patient reports were obtained during the engagement and assessed for resistance against offline password recovery attacks.
 
-Password protection was insufficient to prevent offline password recovery.
+### Patient Report 1
 
-### Proof of Exploitation
-
-#### Patient Reports 1 
+#### Methodology
 
 ```text
-PDF
- ↓
+Protected PDF
+      ↓
 Networkwalks Hash Calculator
- ↓
+      ↓
 Hash Extraction
- ↓
+      ↓
 Networkwalks Password Cracker
- ↓
+      ↓
 Password Recovery
- ↓
+      ↓
 Successful Access
 ```
 
-#### Patient Reports 2
+### Patient Report 2
+
+#### Methodology
 
 ```text
-PDF
- ↓
+Protected PDF
+      ↓
 Networkwalks Hash Calculator
- ↓
+      ↓
 Hash Extraction
- ↓
+      ↓
 Networkwalks Password Cracker
- ↓
+      ↓
 Password Recovery
- ↓
+      ↓
 Successful Access
 ```
 
+### Patient Report 3
 
-
-
-
-
-
-#### Patient Report 3
+#### Methodology
 
 ```text
-PDF
- ↓
+Protected PDF
+      ↓
 PDFCrack
- ↓
+      ↓
 RockYou Wordlist
- ↓
+      ↓
 Password Recovery
- ↓
+      ↓
 Successful Access
 ```
 
 ### Evidence
 
-- Password recovery screenshots
-- Hash extraction screenshots
-- Opened report screenshots
+- PDF-01.png
+- PDF-02.png
+- PDF-03.png
 
 ### Impact
 
-Successful password recovery provided unrestricted access to confidential medical information.
+Successful password recovery allowed unauthorized access to confidential patient medical information.
+
+### Root Cause
+
+- Weak password selection
+- Predictable passwords
+- Lack of password complexity requirements
 
 ---
 
-# Finding F-005
+# Finding F-008
 
-## Critical Exposure of Employee and Shareholder Records
+## Employee Salary Information Exposure
 
 ### Severity
 
-CRITICAL
+**CRITICAL**
 
 ### Description
 
-Analysis of the exposed database backup revealed confidential organizational information relating to employee compensation and corporate ownership.
-
----
-
-## Employee Salary Records
+The exposed SQL backup contained sensitive payroll and employment information belonging to hospital personnel.
 
 ### Sample Recovered Records
 
@@ -336,8 +512,33 @@ Analysis of the exposed database backup revealed confidential organizational inf
 | Linda Fourie | Receptionist | Front Office | 19,000 |
 
 ---
+### Evidence
 
-## Shareholder Ownership Records
+- EMP-01.png
+
+### Impact
+
+Exposure of employee salary information may result in:
+
+- Privacy violations
+- Targeted social engineering
+- Employee disputes
+- Financial profiling
+- Reputational damage
+
+---
+
+# Finding F-009
+
+## Shareholder Ownership Information Exposure
+
+### Severity
+
+**CRITICAL**
+
+### Description
+
+Analysis of the database backup identified confidential shareholder ownership information.
 
 ### Sample Recovered Records
 
@@ -355,31 +556,54 @@ Analysis of the exposed database backup revealed confidential organizational inf
 | Dr. Vikram Chetty | 4.0% | 40,000 | Preferential |
 
 ---
+### Evidence
+
+- SHR-01.png
 
 ### Impact
 
-The exposed information permits unauthorized parties to obtain intelligence relating to:
+Exposure of shareholder information enables:
 
-- Employee compensation
-- Organizational structure
-- Corporate ownership
-- Investor relationships
-- Business governance
-
-The disclosure creates significant privacy, financial, and reputational risks.
+- Corporate intelligence gathering
+- Ownership structure analysis
+- Investor profiling
+- Strategic business intelligence collection
+- Increased targeting of key stakeholders
 
 ---
 
-# 4. Risk Rating Summary
+# 5. Risk Rating Summary
 
-| Finding | Severity |
-|----------|----------|
-| Information Disclosure via robots.txt | Low |
-| Public Database Backup Exposure | Critical |
-| Authentication Bypass | Critical |
-| Weak Password Protection on Patient Reports | High |
-| Employee & Shareholder Record Exposure | Critical |
+| Finding ID | Finding | Severity |
+|------------|----------|----------|
+| F-001 | Registrar and Infrastructure Intelligence Disclosure | Informational |
+| F-002 | Server Technology and Header Disclosure | Low |
+| F-003 | Missing Vulnerability Disclosure Policy | Informational |
+| F-004 | robots.txt Information Disclosure | Low |
+| F-005 | Public Database Backup Exposure | Critical |
+| F-006 | Authentication Bypass via SQL Injection | Critical |
+| F-007 | Weak Password Protection on Patient Reports | High |
+| F-008 | Employee Salary Information Exposure | Critical |
+| F-009 | Shareholder Ownership Information Exposure | Critical |
 
+## Overall Risk Assessment
+
+### Overall Rating: CRITICAL
+
+The assessment identified multiple vulnerabilities that could be chained together to achieve significant compromise of confidential organizational assets.
+
+The combination of:
+
+- Information disclosure
+- Public backup exposure
+- Authentication bypass
+- Weak password protection
+- Employee data exposure
+- Shareholder data exposure
+
+resulted in a Critical overall risk rating.
+
+Immediate remediation is recommended.
 ---
 
 # 5. Recommendations and Remediation
@@ -456,7 +680,7 @@ The combination of these findings results in a Critical overall risk level and r
 
 
 
-# Appendix B – Sensitive Validation Evidence
+# Appendix A – Sensitive Validation Evidence
 
 ## Confidential Evidence
 
@@ -464,7 +688,7 @@ The contents of this appendix are included solely for assessment validation purp
 
 ---
 
-## B.1 Authentication Testing
+## A.1 Authentication Testing
 
 ### Authentication Bypass Payload
 
@@ -481,7 +705,7 @@ The contents of this appendix are included solely for assessment validation purp
 
 ---
 
-## B.2 Patient Report Recovery
+## A.2 Patient Report Recovery
 
 ### Patient Report 1
 
@@ -523,7 +747,7 @@ The contents of this appendix are included solely for assessment validation purp
 
 ---
 
-## B.3 Validation Summary
+## A.3 Validation Summary
 
 | Asset | Access Obtained |
 |---------|---------|
@@ -532,3 +756,6 @@ The contents of this appendix are included solely for assessment validation purp
 | Patient Report 3 | ✅ |
 | Employee Records | ✅ |
 | Shareholder Records | ✅ |
+
+
+
