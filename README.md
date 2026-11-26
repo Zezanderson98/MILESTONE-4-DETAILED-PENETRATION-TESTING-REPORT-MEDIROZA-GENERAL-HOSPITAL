@@ -200,8 +200,47 @@ The following information was identified:
 ### Evidence
 
 - SS001-WHOIS.png
+
+<img width="1360" height="662" alt="SS001-WHOIS" src="https://github.com/user-attachments/assets/3f5710d8-51e6-470a-8071-c1d7a875d6d3" />
+
+
+
+
+
+
+
+
+
+
+
 - SS003-NSLOOKUP.png
+
+
+
+
+<img width="1360" height="662" alt="SS003-NSLOOKUP" src="https://github.com/user-attachments/assets/bdfec2f5-85e1-4048-9c3e-e8c3bd659bd8" />
+
+
+
+
+
+
+
 - SS006-DNSRECON.png
+
+
+<img width="1360" height="662" alt="SS006-DNSRECON" src="https://github.com/user-attachments/assets/56c264f8-ba9d-4a22-80b1-fb9d015de849" />
+
+
+
+
+
+
+
+
+
+
+
 
 ### Impact
 
@@ -224,7 +263,37 @@ Technology fingerprinting confirmed the use of LiteSpeed Web Server technology a
 ### Evidence
 
 - SS002-WHATWEB.png
+
+
+
+<img width="1360" height="662" alt="SS002-WHATWEB" src="https://github.com/user-attachments/assets/03b0ac47-0ac2-4296-93b6-74c6002e6ac3" />
+
+
+
+
+
+
+
+
+
+
+
+
 - SS004-CURL-I.png
+
+
+
+<img width="1360" height="662" alt="SS004-CURL -I" src="https://github.com/user-attachments/assets/ba97d18d-e5db-4f6e-8674-86aef0a60cba" />
+
+
+
+
+
+
+
+
+
+
 
 ### Information Identified
 
@@ -258,7 +327,24 @@ No security.txt file was present under:
 
 ### Evidence
 
+
+
+
 - SS009-SECURITYTXT.png
+
+
+
+
+<img width="1360" height="662" alt="SS009-SECURITYTXT" src="https://github.com/user-attachments/assets/2ed99586-e3df-416e-9e1a-e89545114774" />
+
+
+
+
+
+
+
+
+
 
 ### Impact
 
@@ -288,7 +374,21 @@ The robots.txt file disclosed sensitive internal application paths that were not
 
 ### Evidence
 
+
+
 - SS007-ROBOTS.png
+
+
+
+
+<img width="1360" height="662" alt="SS007B-ROBOTS" src="https://github.com/user-attachments/assets/b559dc47-06e9-4521-bc2c-40dcfc0c7510" />
+
+
+
+
+
+
+
 
 ### Impact
 
@@ -333,6 +433,10 @@ Sensitive Data Disclosure
 ### Evidence
 
 - SS016-OLD-DIRECTORY.png
+
+
+
+
 - SS017-DATABASE-BACKUP.png
 - OLD PAGE.png
 
