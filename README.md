@@ -434,11 +434,27 @@ Sensitive Data Disclosure
 
 - SS016-OLD-DIRECTORY.png
 
+<img width="1366" height="768" alt="OLD PAGE" src="https://github.com/user-attachments/assets/66cddf84-5f83-4012-b0ed-3710eec0f306" />
+
+
+
 
 
 
 - SS017-DATABASE-BACKUP.png
-- OLD PAGE.png
+
+
+
+
+
+
+
+
+
+
+<img width="1366" height="768" alt="SS017-DATABASE-DIRECTORY" src="https://github.com/user-attachments/assets/bdbdfe71-c189-489c-86e9-f05d318d731e" />
+
+
 
 ### Impact
 
@@ -482,9 +498,47 @@ Testing demonstrated that authentication could be bypassed, resulting in unautho
 
 ### Evidence
 
-- SS014-PATIENT-LOGIN.png
 - SS018-PATIENT-PORTAL.png
+
+<img width="1366" height="768" alt="PATIENT PORTAL 11" src="https://github.com/user-attachments/assets/ec754e28-9498-44e3-89af-8fca5c33cbde" />
+
+
+
+
+
+
+
+- SS014-PATIENT-LOGIN.png
+
+<img width="1366" height="768" alt="PATIENT LOGIN NOW" src="https://github.com/user-attachments/assets/6e5b3acf-13ae-4d52-abae-728b333444fe" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - PDF-PATIENT-DISCOVERED.png
+
+
+
+<img width="1366" height="768" alt="PDF PATIENT DISCOVRED" src="https://github.com/user-attachments/assets/a40251e3-aa08-40ba-88d4-44039e96fee7" />
+
+
+
+
 
 ### Impact
 
@@ -533,6 +587,42 @@ Password Recovery
 Successful Access
 ```
 
+
+SS03-HASH-CALCULATOR
+
+Networkwalks Hash Calculator successfully extracted the password hash from the encrypted patient_report 1 – Password Recovery
+
+<img width="1366" height="768" alt="SS03-COPY-HASH-PATIENT-PDF-1" src="https://github.com/user-attachments/assets/8c08a68f-0c10-40e7-a15c-74886f4eea30" />
+
+
+
+
+SS04-PASSWORD-CRACKER
+
+Networkwalks Password Cracker successfully recovered the document password from the extracted hash.
+
+<img width="1366" height="768" alt="SS07-PDF-PASSWORD-FOR-PATIENT-1-CRACKED-SUCESSFULLY" src="https://github.com/user-attachments/assets/9281c0e5-2406-4bd2-ac81-301bcdb20749" />
+
+
+SS05-ACCESSING-PDF1
+
+
+
+<img width="1366" height="768" alt="SS08-ACCESSING-PDF-1-PATIENT_REPORT" src="https://github.com/user-attachments/assets/8c4b28df-f11b-4fa2-8eae-4128612e1101" />
+
+
+
+SS06-PDF-1-ACCESSED
+
+
+Patient Report 1 successfully decrypted and opened using the recovered password.
+
+<img width="1366" height="768" alt="SS09-PDF-1-PATIENT _REPORT- ACCESSED SUCESSFULY" src="https://github.com/user-attachments/assets/61219fcc-ad05-4d3b-a1af-4bfa5a46cfec" />
+
+
+
+
+
 ### Patient Report 2
 
 #### Methodology
@@ -551,6 +641,47 @@ Password Recovery
 Successful Access
 ```
 
+
+
+
+SS03-HASH-CALCULATOR
+
+Networkwalks Hash Calculator successfully extracted the password hash from the encrypted patient_report 2 – Password Recovery
+
+<img width="1366" height="768" alt="SS03-COPY-HASH-PATIENT-PDF-2" src="https://github.com/user-attachments/assets/725b1bf2-609d-4754-9436-76b341982dff" />
+
+
+
+
+SS04-PASSWORD-CRACKER
+
+Networkwalks Password Cracker successfully recovered the document password from the extracted hash.
+
+
+
+<img width="1366" height="768" alt="SS07-PDF-PASSWORD-FOR-PATIENT-2-CRACKED-SUCESSFULY" src="https://github.com/user-attachments/assets/435503c9-5679-49a2-8041-c7fa6dfe8b08" />
+
+
+
+SS05-ACCESSING-PDF-2
+
+<img width="1366" height="768" alt="SS08-ACCESSING-PDF-2-PATIENT_REPORT" src="https://github.com/user-attachments/assets/2bedd9f0-0619-4504-aa8f-4c63ef1357f8" />
+
+
+
+
+SS06-PDF-2-ACCESSED
+
+
+Patient Report 2 successfully decrypted and opened using the recovered password.
+
+
+
+
+
+<img width="1366" height="768" alt="SS09-PDF-2-PATIENT_REPORT-ACCESSED-SUCESSFULY" src="https://github.com/user-attachments/assets/e3e10e25-4dee-4e5d-a247-accb9b62bbc9" />
+
+
 ### Patient Report 3
 
 #### Methodology
@@ -567,11 +698,30 @@ Password Recovery
 Successful Access
 ```
 
-### Evidence
+SS01_PDFCRACK_ROCKYYOU_PATIENT_REPORT_3
 
-- PDF-01.png
-- PDF-02.png
-- PDF-03.png
+PDFCrack successfully performed offline password recovery using the RockYou wordlist
+
+
+<img width="1360" height="662" alt="SS01_PDFCRACK_ROCKYYOU_PATIENT_REPORT_3" src="https://github.com/user-attachments/assets/e9c04159-6406-4020-87dc-7d3a832d5fb0" />
+
+
+
+SS02-ACCESSING-PDF-3-PATIENT_REPORT
+
+Recovered password identified and validated
+
+<img width="1366" height="768" alt="SS02-ACCESSING-PDF-3-PATIENT_REPORT" src="https://github.com/user-attachments/assets/33244ef5-f5cf-4426-9b73-35b9ec85d4b6" />
+
+
+
+SS03-PDF-3-PATIENT_REPORT-ACCESSED
+
+
+<img width="1366" height="768" alt="SS03-PDF-3-PATIENT_REPORT-ACCESSED" src="https://github.com/user-attachments/assets/7bb26c35-0a6c-478b-8699-0c85a60b01ae" />
+
+
+
 
 ### Impact
 
@@ -599,26 +749,61 @@ The exposed SQL backup contained sensitive payroll and employment information be
 
 ### Sample Recovered Records
 
+## Employee Salary Information Exposure
+
 | Employee | Position | Department | Annual Salary |
-|-----------|-----------|-----------|-----------|
-| Dr. Suresh Moodley | Consultant Radiologist | Radiology | 130,000 |
-| Dr. Vikram Chetty | Anaesthetist | Theatre | 135,000 |
-| Dr. Fatima Patel | Pediatrician | Pediatrics | 118,000 |
-| David Smith | Facilities Manager | Operations | 52,000 |
-| Nisha Singh | Physiotherapist | Rehabilitation | 48,000 |
-| Radebe | Radiographer | Radiology | 43,000 |
-| Deepak Pillay | Lab Technologist | Diagnostics Lab | 41,000 |
-| Peter van Wyk | Procurement Officer | Supply Chain | 38,000 |
-| Kavitha Govender | Lab Technician | Diagnostics Lab | 35,000 |
-| Karen O'Connor | Billing Administrator | Finance | 29,000 |
-| James Wilson | Security Supervisor | Operations | 27,000 |
-| Andile Mbeki | Ward Clerk | Administration | 21,000 |
-| Linda Fourie | Receptionist | Front Office | 19,000 |
+| :--- | :--- | :--- | :--- |
+| Dr. Rajesh Naidoo | Chief Pathologist | Diagnostics Lab | R 1,656,000 |
+| Sarah Botha | Chief Financial Officer | Finance | R 1,824,000 |
+| Dr. Johan van der Merwe | Medical Director | Management | R 1,920,000 |
+| Dr. Anita Naicker | Consultant Cardiologist | Cardiology | R 1,584,000 |
+| Dr. Ahmed Kara | Consultant Physician | Internal Medicine | R 1,536,000 |
+| Dr. Yusuf Cassim | Senior Registrar | Emergency & Trauma | R 888,000 |
+| Michael Roberts | HR Director | Human Resources | R 1,152,000 |
+| Susan Pretorius | HR Officer | Human Resources | R 384,000 |
+| Jameel Malik | IT Systems Administrator | IT | R 696,000 |
+| Thabo Molefe | Network Engineer | IT | R 552,000 |
+| Nomvula Khumalo | Registered Nurse | Emergency & Trauma | R 408,000 |
+| Lerato Mokoena | Registered Nurse | Pediatrics | R 396,000 |
+| Bongani Ndlovu | Registered Nurse | Cardiology | R 420,000 |
+| Zanele Mahlangu | Nursing Sister | Theatre | R 504,000 |
+| Kagiso Sithole | Pharmacist | Pharmacy | R 732,000 |
+| Naledi Zulu | Pharmacy Assistant | Pharmacy | R 312,000 |
+| Themba Nkosi | Radiographer | Radiology | R 528,000 |
+| Palesa Radebe | Radiographer | Radiology | R 516,000 |
+| Deepak Pillay | Lab Technologist | Diagnostics Lab | R 492,000 |
+| Kavitha Govender | Lab Technician | Diagnostics Lab | R 420,000 |
+| Dr. Suresh Moodley | Consultant Radiologist | Radiology | R 1,560,000 |
+| Dr. Fatima Patel | Pediatrician | Pediatrics | R 1,416,000 |
+| Nisha Singh | Physiotherapist | Rehabilitation | R 576,000 |
+| Dr. Vikram Chetty | Anaesthetist | Theatre | R 1,620,000 |
+| David Smith | Facilities Manager | Operations | R 624,000 |
+| Karen O'Connor | Billing Administrator | Finance | R 348,000 |
+| James Wilson | Security Supervisor | Operations | R 324,000 |
+| Linda Fourie | Receptionist | Front Office | R 228,000 |
+| Peter van Wyk | Procurement Officer | Supply Chain | R 456,000 |
+| Andile Mbeki | Ward Clerk | Administration | R 252,000 |
 
 ---
 ### Evidence
 
 - EMP-01.png
+
+<img width="1363" height="768" alt="EMP-01" src="https://github.com/user-attachments/assets/16d0ee97-f1c3-4205-8466-16141acb22b0" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Impact
 
@@ -663,6 +848,20 @@ Analysis of the database backup identified confidential shareholder ownership in
 ### Evidence
 
 - SHR-01.png
+
+
+
+
+<img width="1366" height="426" alt="SHR-01" src="https://github.com/user-attachments/assets/d3442f3f-5e41-447e-bb50-46e6d9e462c5" />
+
+
+
+
+
+
+
+
+
 
 ### Impact
 
