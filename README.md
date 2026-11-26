@@ -1015,7 +1015,7 @@ The contents of this appendix are included solely for assessment validation purp
 | Item | Value |
 |---------|---------|
 | Status | Password Recovered |
-| Recovered Password | 12345 |
+| Recovered Password | 123456 |
 
 ### Result
 
