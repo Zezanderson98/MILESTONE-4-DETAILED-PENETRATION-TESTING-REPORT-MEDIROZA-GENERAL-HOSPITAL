@@ -8,7 +8,7 @@
 | Client | Mediroza General Hospital |
 | Assessment Type | Black-Box Penetration Test |
 | Target | https://medirozahospital.com |
-| Penester | Anderson Edaiyo Uzezi |
+| Pentester | Anderson Edaiyo Uzezi |
 | Report Classification | Confidential |
 | Engagement Status | Complete |
 
