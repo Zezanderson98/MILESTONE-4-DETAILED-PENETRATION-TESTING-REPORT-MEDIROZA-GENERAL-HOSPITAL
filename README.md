@@ -1061,3 +1061,137 @@ The contents of this appendix are included solely for assessment validation purp
 | Shareholder Records | ✅ |
 
 
+---
+
+```text
+Mediroza-Penetration-Test/
+│
+├── README.md
+│
+├── report/
+│   ├── 01-Executive-Summary.md
+│   ├── 02-Scope-and-Methodology.md
+│   ├── 03-Attack-Chain-Summary.md
+│   ├── 04-Findings-and-Proof-of-Exploitation.md
+│   ├── 05-Risk-Rating-Summary.md
+│   ├── 06-Recommendations-and-Remediation.md
+│   ├── 07-Conclusion.md
+│   └── Appendix-A-Sensitive-Validation-Evidence.md
+│
+├── evidence/
+│
+│   ├── reconnaissance/
+│   │   ├── SS001-WHOIS.png
+│   │   ├── SS002-WHATWEB.png
+│   │   ├── SS003-NSLOOKUP.png
+│   │   ├── SS004-CURL-I.png
+│   │   ├── SS005-WAFW00F.png
+│   │   ├── SS006-DNSRECON.png
+│   │   └── SS009-SECURITYTXT.png
+│   │
+│   ├── application-mapping/
+│   │   ├── SS007-ROBOTS.png
+│   │   ├── SS008-SITEMAP.png
+│   │   ├── SS010-SITE-MAP.png
+│   │   ├── SS011-ENTRY-POINTS.png
+│   │   ├── SS012-GOBUSTER.png
+│   │   └── SS013-WHATWEB-FORMS.png
+│   │
+│   ├── initial-access/
+│   │   ├── SS014-PATIENT-LOGIN.png
+│   │   ├── SS015-STAFF-LOGIN.png
+│   │   ├── SS016-OLD-DIRECTORY.png
+│   │   ├── SS017-DATABASE-BACKUP.png
+│   │   ├── SS018-PATIENT-PORTAL.png
+│   │   ├── PDF-PATIENT-DISCOVERED.png
+│   │   └── OLD-PAGE.png
+│   │
+│   ├── milestone-2/
+│   │   │
+│   │   ├── patient-report-1/
+│   │   │   ├── SS03-COPY-HASH-PATIENT-PDF-1.png
+│   │   │   ├── SS07-PDF-PASSWORD-FOR-PATIENT-1.png
+│   │   │   ├── SS08-ACCESSING-PDF-1.png
+│   │   │   └── SS09-PDF-1-ACCESSED.png
+│   │   │
+│   │   ├── patient-report-2/
+│   │   │   ├── SS03-COPY-HASH-PATIENT-PDF-2.png
+│   │   │   ├── SS07-PDF-PASSWORD-FOR-PATIENT-2.png
+│   │   │   ├── SS08-ACCESSING-PDF-2.png
+│   │   │   └── SS09-PDF-2-ACCESSED.png
+│   │   │
+│   │   └── patient-report-3/
+│   │       ├── SS01-PDFCRACK-ROCKYOU.png
+│   │       ├── SS02-ACCESSING-PDF-3.png
+│   │       └── SS03-PDF-3-ACCESSED.png
+│   │
+│   └── milestone-3/
+│       ├── EMP-01.png
+│       └── SHR-01.png
+│
+├── findings/
+│   ├── F-001-Infrastructure-Intelligence.md
+│   ├── F-002-Server-Technology-Disclosure.md
+│   ├── F-003-Missing-SecurityTXT.md
+│   ├── F-004-RobotsTXT-Disclosure.md
+│   ├── F-005-Public-Database-Backup.md
+│   ├── F-006-SQL-Injection-Authentication-Bypass.md
+│   ├── F-007-Weak-PDF-Password-Protection.md
+│   ├── F-008-Employee-Salary-Exposure.md
+│   └── F-009-Shareholder-Exposure.md
+│
+├── milestones/
+│   ├── Milestone-1-Reconnaissance.md
+│   ├── Milestone-1-Application-Mapping.md
+│   ├── Milestone-1-Initial-Access.md
+│   ├── Milestone-2-Data-Extraction.md
+│   ├── Milestone-3-Critical-Data-Exposure.md
+│   └── Milestone-4-Final-Report.md
+│
+├── assets/
+│   ├── cover-image.png
+│   ├── attack-chain.png
+│   └── risk-matrix.png
+│
+└── LICENSE
+```
+
+
+---
+
+## 🔍 Summary of Findings
+
+| ID | Finding | Category | Detailed Write-Up |
+| :--- | :--- | :--- | :--- |
+| **F-001** | Infrastructure Intelligence | Reconnaissance | [View Finding](./findings/F-001-Infrastructure-Intelligence.md) |
+| **F-002** | Server Technology Disclosure | Information Disclosure | [View Finding](./findings/F-002-Server-Technology-Disclosure.md) |
+| **F-003** | Missing `security.txt` | Configuration | [View Finding](./findings/F-003-Missing-SecurityTXT.md) |
+| **F-004** | `robots.txt` Sensitive Path Disclosure | Information Disclosure | [View Finding](./findings/F-004-RobotsTXT-Disclosure.md) |
+| **F-005** | Publicly Accessible Database Backup | Sensitive Data Exposure | [View Finding](./findings/F-005-Public-Database-Backup.md) |
+| **F-006** | SQL Injection Authentication Bypass | Broken Authentication | [View Finding](./findings/F-006-SQL-Injection-Authentication-Bypass.md) |
+| **F-007** | Weak PDF Password Protection | Cryptographic / Policy Flaw | [View Finding](./findings/F-007-Weak-PDF-Password-Protection.md) |
+| **F-008** | Employee Salary Information Exposure | Confidentiality Breach | [View Finding](./findings/F-008-Employee-Salary-Exposure.md) |
+| **F-009** | Shareholder Information Exposure | Confidentiality Breach | [View Finding](./findings/F-009-Shareholder-Exposure.md) |
+
+---
+
+## 📄 Full Report Navigation
+
+1. [Executive Summary](./report/01-Executive-Summary.md)
+2. [Scope and Methodology](./report/02-Scope-and-Methodology.md)
+3. [Attack Chain Summary](./report/03-Attack-Chain-Summary.md)
+4. [Findings and Proof of Exploitation](./report/04-Findings-and-Proof-of-Exploitation.md)
+5. [Risk Rating Summary](./report/05-Risk-Rating-Summary.md)
+6. [Recommendations and Remediation](./report/06-Recommendations-and-Remediation.md)
+7. [Conclusion](./report/07-Conclusion.md)
+8. [Appendix A: Sensitive Validation Evidence](./report/Appendix-A-Sensitive-Validation-Evidence.md)
+
+---
+
+
+---
+
+## ⚠️ Disclaimer
+
+This assessment was performed strictly within an authorized educational/lab environment for defensive security reporting and portfolio demonstration purposes.
+
