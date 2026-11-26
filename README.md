@@ -427,3 +427,88 @@ The combination of these findings results in a Critical overall risk level and r
 ✅ Remediation Recommendations Provided
 
 ✅ Penetration Test Completed
+
+
+
+
+
+
+
+# Appendix B – Sensitive Validation Evidence
+
+## Confidential Evidence
+
+The contents of this appendix are included solely for assessment validation purposes and contain sensitive information recovered during authorized testing.
+
+---
+
+## B.1 Authentication Testing
+
+### Authentication Bypass Payload
+
+| Field | Value |
+|---------|---------|
+| Username Payload | admin'-- |
+| Password Value Used During Testing | 12345 |
+
+### Result
+
+✅ Authentication Bypass Successful
+
+✅ Patient Portal Access Obtained
+
+---
+
+## B.2 Patient Report Recovery
+
+### Patient Report 1
+
+| Item | Value |
+|---------|---------|
+| Status | Password Recovered |
+| Recovered Password | 12345 |
+
+Evidence:
+- Screenshot of hash extraction
+- Screenshot of password recovery
+- Screenshot of successful PDF access
+
+---
+
+### Patient Report 2
+
+| Item | Value |
+|---------|---------|
+| Status | Password Recovered |
+| Recovered Password | password |
+
+Evidence:
+- Screenshot of hash extraction
+- Screenshot of password recovery
+- Screenshot of successful PDF access
+
+---
+
+### Patient Report 3
+
+| Item | Value |
+|---------|---------|
+| Status | Password Recovered |
+| Recovered Password | !@#$%^& |
+
+Evidence:
+- Screenshot of PDFCrack output
+- Screenshot of password recovery
+- Screenshot of successful PDF access
+
+---
+
+## B.3 Validation Summary
+
+| Asset | Access Obtained |
+|---------|---------|
+| Patient Report 1 | ✅ |
+| Patient Report 2 | ✅ |
+| Patient Report 3 | ✅ |
+| Employee Records | ✅ |
+| Shareholder Records | ✅ |
