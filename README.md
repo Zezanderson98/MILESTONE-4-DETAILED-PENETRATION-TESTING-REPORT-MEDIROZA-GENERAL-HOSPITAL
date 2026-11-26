@@ -237,7 +237,7 @@ Password protection was insufficient to prevent offline password recovery.
 
 ### Proof of Exploitation
 
-#### Patient Reports 1 and 2
+#### Patient Reports 1 
 
 ```text
 PDF
@@ -252,6 +252,28 @@ Password Recovery
  ↓
 Successful Access
 ```
+
+#### Patient Reports 2
+
+```text
+PDF
+ ↓
+Networkwalks Hash Calculator
+ ↓
+Hash Extraction
+ ↓
+Networkwalks Password Cracker
+ ↓
+Password Recovery
+ ↓
+Successful Access
+```
+
+
+
+
+
+
 
 #### Patient Report 3
 
@@ -468,10 +490,9 @@ The contents of this appendix are included solely for assessment validation purp
 | Status | Password Recovered |
 | Recovered Password | 12345 |
 
-Evidence:
-- Screenshot of hash extraction
-- Screenshot of password recovery
-- Screenshot of successful PDF access
+### Result
+
+✅ Patient Report 1 Accessed
 
 ---
 
@@ -482,10 +503,10 @@ Evidence:
 | Status | Password Recovered |
 | Recovered Password | password |
 
-Evidence:
-- Screenshot of hash extraction
-- Screenshot of password recovery
-- Screenshot of successful PDF access
+### Result
+
+✅ Patient Report 2 Accessed
+
 
 ---
 
@@ -496,10 +517,9 @@ Evidence:
 | Status | Password Recovered |
 | Recovered Password | !@#$%^& |
 
-Evidence:
-- Screenshot of PDFCrack output
-- Screenshot of password recovery
-- Screenshot of successful PDF access
+### Result
+
+✅ Patient Report 3 Accessed
 
 ---
 
