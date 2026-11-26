@@ -1062,7 +1062,7 @@ The contents of this appendix are included solely for assessment validation purp
 
 
 ---
-
+## REPOSITORY STRUCTURE
 ```text
 Mediroza-Penetration-Test/
 │
