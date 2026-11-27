@@ -556,8 +556,80 @@ Successful exploitation resulted in:
 - Insecure authentication implementation
 
 ---
-
 # Finding F-007
+
+## Staff Portal Authentication Assessment
+
+### Severity
+
+INFORMATIONAL
+
+### Affected Endpoint
+
+```text
+/staff/login.php
+```
+
+### Status
+
+Authentication bypass not achieved.
+
+### Description
+
+The Staff Portal was identified during the Application Mapping phase and selected for authentication testing due to its potential access to internal hospital resources and administrative functionality.
+
+The authentication mechanism was evaluated using the same controlled testing methodology applied to the Patient Portal.
+
+Testing focused on:
+
+- Authentication logic validation
+- Input handling
+- Common authentication bypass techniques
+- Session establishment behavior
+- Access control verification
+
+No successful authentication bypass, unauthorized access, or session compromise was achieved during testing.
+
+### Evidence
+
+#### Evidence 1 – Staff Portal Login Interface
+
+SS015-STAFF-LOGIN-FAIL.png
+
+
+### Validation Result
+
+✅ Authentication mechanism identified
+
+✅ Login portal accessible
+
+✅ Authentication testing completed
+
+✅ No successful authentication bypass achieved
+
+✅ No unauthorized access obtained
+
+### Security Impact
+
+No exploitable vulnerability was confirmed within the Staff Portal authentication mechanism during the scope of this assessment.
+
+This result indicates the Staff Portal provided stronger resistance to the testing methodology used during the engagement when compared to the Patient Portal.
+
+### Analyst Assessment
+
+While no vulnerability was identified within the Staff Portal during testing, the portal remains a high-value target due to its likely access to internal administrative and employee resources.
+
+Future assessments should include:
+
+- Advanced - Session management assessment
+- Authorization testing
+- Business logic review
+
+
+
+
+
+# Finding F-008
 
 ## Weak Password Protection on Patient Reports
 
@@ -735,7 +807,7 @@ Successful password recovery allowed unauthorized access to confidential patient
 
 ---
 
-# Finding F-008
+# Finding F-009
 
 ## Employee Salary Information Exposure
 
@@ -817,7 +889,7 @@ Exposure of employee salary information may result in:
 
 ---
 
-# Finding F-009
+# Finding F-010
 
 ## Shareholder Ownership Information Exposure
 
@@ -885,9 +957,10 @@ Exposure of shareholder information enables:
 | F-004 | robots.txt Information Disclosure | Low |
 | F-005 | Public Database Backup Exposure | Critical |
 | F-006 | Authentication Bypass via SQL Injection | Critical |
-| F-007 | Weak Password Protection on Patient Reports | High |
-| F-008 | Employee Salary Information Exposure | Critical |
-| F-009 | Shareholder Ownership Information Exposure | Critical |
+| F-007 | Staff Portal Authentication Assessment  | Informational  |
+| F-008 | Weak Password Protection on Patient Reports | High |
+| F-009 | Employee Salary Information Exposure | Critical |
+| F-010 | Shareholder Ownership Information Exposure | Critical |
 
 ## Overall Risk Assessment
 
@@ -1170,24 +1243,23 @@ Mediroza-Penetration-Test/
 
 ---
 
+
+---
+
 ## 🔍 Summary of Findings
 
 | ID | Finding | Severity | Phase Repository (Step-by-Step) |
 | :--- | :--- | :--- | :--- |
-| **F-001** | Infrastructure Intelligence | Informational | [Reconnaissance Repo](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION) |
-| **F-002** | Server Technology Disclosure | Low | [Reconnaissance Repo](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION) |
-| **F-003** | Missing `security.txt` | Low / Informational | [Application Mapping Repo](https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS) |
+| **F-001** | Infrastructure Intelligence | Informational | [Reconnaissance Repo](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION)  |
+| **F-002** | Server Technology Disclosure | Low | [Reconnaissance Repo](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION) | |
+| **F-003** | Missing `security.txt` | Low / Informational | [Application Mapping Repo] (https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS)|
 | **F-004** | `robots.txt` Sensitive Path Disclosure | Low / Informational | [Application Mapping Repo](https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS) |
-| **F-005** | Publicly Accessible Database Backup (`/old/mediroza_db_backup_2019.sql`) | **CRITICAL** | [Application Mapping Repo](https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS) / [Initial Access Repo](https://github.com/Zezanderson98/INITIAL-ACCESS-AND-AUTHENTICATION-TESTING) |
+| **F-005** | Publicly Accessible Database Backup (`/old/mediroza_db_backup_2019.sql`) | **CRITICAL** | [Application Mapping Repo](https://github.com/Zezanderson98/APPLICATION-MAPPING-AND-EXPOSED-ENTRY-POINTS)/ [Initial Access Repo](https://github.com/Zezanderson98/INITIAL-ACCESS-AND-AUTHENTICATION-TESTING) |
 | **F-006** | SQL Injection Authentication Bypass (`/patient/login.php`) | **CRITICAL** | [Initial Access Repo](https://github.com/Zezanderson98/INITIAL-ACCESS-AND-AUTHENTICATION-TESTING) |
-| **F-007** | Weak PDF Password Protection (Patient Reports 1–3) | **HIGH** | [Data Extraction & Recovery Repo](https://github.com/Zezanderson98/DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS) |
-| **F-008** | Employee Salary Information Exposure | **CRITICAL** | [Critical Data Exposure Repo](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) |
-| **F-009** | Shareholder Information Exposure | **CRITICAL** | [Critical Data Exposure Repo](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) |
-
-
----
-
-
+| **F-007** | Staff Portal Authentication Assessment | Informational | [Initial Access Repo](https://github.com/Zezanderson98/INITIAL-ACCESS-AND-AUTHENTICATION-TESTING) |
+| **F-008** | Weak PDF Password Protection (Patient Reports 1–3) | **HIGH** | [Data Extraction & Recovery Repo] (https://github.com/Zezanderson98/DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS)|
+| **F-009** | Employee Salary Information Exposure | **CRITICAL** | [Critical Data Exposure Repo] (https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) |
+| **F-010** | Shareholder Information Exposure | **CRITICAL** | [Critical Data Exposure Repo](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) |
 
 
 ---
