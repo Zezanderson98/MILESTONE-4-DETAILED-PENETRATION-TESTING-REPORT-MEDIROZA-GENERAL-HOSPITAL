@@ -5,7 +5,7 @@
 
 <div align="center">
 
-# 🛡️ Penetration Testing Lab : Detailed penetration Testing Report of Mediroza General Hospital
+# 🛡️ Penetration Testing Lab : Detailed penetration Testing Report for Mediroza General Hospital
 
 **A black-box penetration test was conducted against Mediroza General Hospital to evaluate the security of its public-facing infrastructure, authentication mechanisms, sensitive data protection controls, and information management practices**
 </div>
