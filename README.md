@@ -1259,6 +1259,12 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 
 ## 🔗 Engagement Phase Repositories
 
+
+
+
+
+
+
 | Milestone / Phase | Repository Link | Scope Covered |
 | :--- | :--- | :--- |
 | **Milestone 1.1 — Reconnaissance** | [RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION) | WHOIS, DNS, WAF detection, headers, `security.txt` |
@@ -1283,6 +1289,10 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 
 
 ## 🔍 Summary of Findings
+
+
+
+
 
 | ID | Finding | Severity | Phase Repository (Step-by-Step) |
 | :--- | :--- | :--- | :--- |
