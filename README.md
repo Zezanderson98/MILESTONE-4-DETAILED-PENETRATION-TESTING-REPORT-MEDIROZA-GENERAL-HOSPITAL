@@ -1137,111 +1137,114 @@ The contents of this appendix are included solely for assessment validation purp
 ---
 ## REPOSITORY STRUCTURE
 
-Mediroza-Penetration-Test/
+```text
+Mediroza-Penetration-Test/                                  # Root repository for the Mediroza General Hospital security assessment
 │
-├── README.md
+├── README.md                                               # Master overview, engagement summary, and quick navigation index
 │
-├── milestones/
-│   ├── Milestone-1-Reconnaissance.md
-│   ├── Milestone-1-Application-Mapping.md
-│   ├── Milestone-1-Initial-Access.md
-│   ├── Milestone-2-Data-Extraction.md
-│   ├── Milestone-3-Critical-Data-Exposure.md
-│   └── Milestone-4-Final-Report.md
+├── milestones/                                             # Phase-by-phase chronological penetration testing reports
+│   ├── Milestone-1-Reconnaissance.md                       # Passive OSINT, DNS, WHOIS, and infrastructure profiling report
+│   ├── Milestone-1-Application-Mapping.md                  # Attack surface enumeration, directory discovery, and entry points
+│   ├── Milestone-1-Initial-Access.md                       # Authentication testing and SQL injection exploitation report
+│   ├── Milestone-2-Data-Extraction.md                      # Offline hash extraction and password recovery for patient PDFs
+│   ├── Milestone-3-Critical-Data-Exposure.md               # Impact analysis of exposed HR, salary, and shareholder records
+│   └── Milestone-4-Final-Report.md                         # Consolidated executive and technical penetration test report
 │
-├── findings/
-│   ├── F-001-Infrastructure-Intelligence.md
-│   ├── F-002-Server-Technology-Disclosure.md
-│   ├── F-003-Missing-SecurityTXT.md
-│   ├── F-004-RobotsTXT-Disclosure.md
-│   ├── F-005-Public-Database-Backup-Exposure.md
-│   ├── F-006-SQL-Injection-Authentication-Bypass.md
-│   ├── F-007-Staff-Portal-Authentication-Assessment.md
-│   ├── F-008-Weak-PDF-Password-Protection.md
-│   ├── F-009-Employee-Salary-Exposure.md
-│   └── F-010-Shareholder-Information-Exposure.md
+├── findings/                                               # Individual technical write-ups for each identified vulnerability
+│   ├── F-001-Infrastructure-Intelligence.md                # Informational: Registrar, hosting, and DNS architecture profile
+│   ├── F-002-Server-Technology-Disclosure.md               # Low: LiteSpeed web server and HTTP header banner disclosures
+│   ├── F-003-Missing-SecurityTXT.md                        # Informational: Absence of /.well-known/security.txt disclosure policy
+│   ├── F-004-RobotsTXT-Disclosure.md                       # Low: Exposure of unlinked /old/ path via robots.txt
+│   ├── F-005-Public-Database-Backup-Exposure.md            # Critical: Unauthenticated access to mediroza_db_backup_2019.sql
+│   ├── F-006-SQL-Injection-Authentication-Bypass.md        # Critical: Login bypass on /patient/login.php via SQLi payload
+│   ├── F-007-Staff-Portal-Authentication-Assessment.md     # Informational: Security evaluation of /staff/login.php controls
+│   ├── F-008-Weak-PDF-Password-Protection.md               # High: Offline dictionary cracking of encrypted patient lab PDFs
+│   ├── F-009-Employee-Salary-Exposure.md                   # Critical: Unauthorized disclosure of 30 staff PII & salary records
+│   └── F-010-Shareholder-Information-Exposure.md           # Critical: Unauthorized disclosure of corporate equity & ownership data
 │
-├── evidence/
-│
-│   ├── reconnaissance/
-│   │   ├── SS001-WHOIS.png
-│   │   ├── SS002-WHATWEB.png
-│   │   ├── SS003-NSLOOKUP.png
-│   │   ├── SS004-CURL-I.png
-│   │   ├── SS005-WAFW00F.png
-│   │   └── SS006-DNSRECON.png
+├── evidence/                                               # Screenshot proof-of-concept artifacts organized by testing phase
 │   │
-│   ├── application-mapping/
-│   │   ├── SS007A-ROBOTS.png
-│   │   ├── SS007B-ROBOTS.png
-│   │   ├── SS008A-SITEMAP.png
-│   │   ├── SS008B-SITEMAP.png
-│   │   ├── SS009-SECURITYTXT.png
-│   │   ├── SS009B-HOMEPAGE.png
-│   │   ├── SS010-ABOUT.png
-│   │   ├── SS010A-DOCTORS.png
-│   │   ├── SS010B-CONTACTS.png
-│   │   ├── SS010C-PATIENT-PORTAL-LOGIN.png
-│   │   ├── SS011-STAFF-LOGIN-PORTAL.png
-│   │   ├── SS011B-OLD-DIRECTORY.png
-│   │   ├── SS012-GOBUSTER.png
-│   │   ├── SS013-WHATWEB-FORMS.png
-│   │   ├── SS013A-PATIENT-FORM-HTML.png
-│   │   └── SS013B-STAFF-FORM-HTML.png
+│   ├── reconnaissance/                                     # Evidence captured during Milestone 1 passive reconnaissance
+│   │   ├── SS001-WHOIS.png                                 # Domain registrar and nameserver lookup output
+│   │   ├── SS002-WHATWEB.png                               # Web server and technology stack fingerprinting output
+│   │   ├── SS003-NSLOOKUP.png                              # DNS resolution confirming public IP (199.188.201.16)
+│   │   ├── SS004-CURL-I.png                                # HTTP response headers showing LiteSpeed and HTTP/2
+│   │   ├── SS005-WAFW00F.png                               # LiteSpeed Web Application Firewall (WAF) detection proof
+│   │   └── SS006-DNSRECON.png                              # Enumeration of MX, SPF, DMARC, and SRV DNS records
 │   │
-│   ├── initial-access/
-│   │   ├── SS014-PATIENT-LOGIN.png
-│   │   ├── SS014B-PDF-PATIENT-DISCOVERED.png
-│   │   ├── SS015-STAFF-LOGIN-FAIL.png
-│   │   ├── SS011B-OLD-DIRECTORY.png
-│   │   └── SS011C-DATABASE-BACKUP.png
+│   ├── application-mapping/                                # Evidence captured during attack surface & directory mapping
+│   │   ├── SS007A-ROBOTS.png                               # HTTP 200 response header check for /robots.txt
+│   │   ├── SS007B-ROBOTS.png                               # Contents of robots.txt revealing /patient/, /staff/, and /old/
+│   │   ├── SS008A-SITEMAP.png                              # Contents of /sitemap.xml listing four public HTML pages
+│   │   ├── SS008B-SITEMAP.png                              # HTTP 404 confirmation for /sitemap_index.xml
+│   │   ├── SS009-SECURITYTXT.png                           # HTTP 404 confirmation for /.well-known/security.txt
+│   │   ├── SS009B-HOMEPAGE.png                             # Manual crawl screenshot of public homepage (/index.html)
+│   │   ├── SS010-ABOUT.png                                 # Manual crawl screenshot of About page (/about.html)
+│   │   ├── SS010A-DOCTORS.png                              # Manual crawl screenshot of Doctors directory (/doctors.html)
+│   │   ├── SS010B-CONTACTS.png                             # Contact form input surface capture (/contact.html)
+│   │   ├── SS010C-PATIENT-PORTAL-LOGIN.png                 # Patient Portal login interface (/patient/login.php)
+│   │   ├── SS011-STAFF-LOGIN-PORTAL.png                    # Staff Portal login interface (/staff/login.php)
+│   │   ├── SS011B-OLD-DIRECTORY.png                        # Open directory listing at /old/ exposing SQL backup file
+│   │   ├── SS012-GOBUSTER.png                              # Directory brute-force scan and WAF/Cloudflare response log
+│   │   ├── SS013-WHATWEB-FORMS.png                         # Automated form endpoint discovery via WhatWeb
+│   │   ├── SS013A-PATIENT-FORM-HTML.png                    # HTML source inspection of Patient Portal POST form
+│   │   └── SS013B-STAFF-FORM-HTML.png                      # HTML source inspection of Staff Portal POST form
 │   │
-│   ├── data-extraction/
+│   ├── initial-access/                                     # Evidence captured during authentication & access testing
+│   │   ├── SS014-PATIENT-LOGIN.png                         # SQL injection payload (admin'--) entered into Patient login
+│   │   ├── SS014B-PDF-PATIENT-DISCOVERED.png               # Authenticated Patient Portal dashboard showing pathology PDFs
+│   │   ├── SS015-STAFF-LOGIN-FAIL.png                      # Failed authentication attempt on Staff Portal login
+│   │   ├── SS011B-OLD-DIRECTORY.png                        # Verification of open directory indexing on /old/
+│   │   └── SS011C-DATABASE-BACKUP.png                      # Direct unauthenticated download of mediroza_db_backup_2019.sql
+│   │
+│   ├── data-extraction/                                    # Evidence for Milestone 2 offline PDF decryption & recovery
 │   │   │
-│   │   ├── patient-report-1/
-│   │   │   ├── SS03-HASH-CALCULATOR-PDF1.png
-│   │   │   ├── SS04-PASSWORD-CRACKED-PDF1.png
-│   │   │   ├── SS05-ACCESS-PDF1.png
-│   │   │   └── SS06-PDF1-CONTENTS.png
+│   │   ├── patient-report-1/                               # Decryption proof for Patient Report 1 (S. Dlamini)
+│   │   │   ├── SS03-HASH-CALCULATOR-PDF1.png               # Extraction of PDF 1 password hash via Networkwalks tool
+│   │   │   ├── SS04-PASSWORD-CRACKED-PDF1.png              # Successful dictionary crack of PDF 1 password
+│   │   │   ├── SS05-ACCESS-PDF1.png                        # Unlocking Patient Report 1 using recovered password
+│   │   │   └── SS06-PDF1-CONTENTS.png                      # Decrypted pathology report contents for Patient 1
 │   │   │
-│   │   ├── patient-report-2/
-│   │   │   ├── SS03-HASH-CALCULATOR-PDF2.png
-│   │   │   ├── SS04-PASSWORD-CRACKED-PDF2.png
-│   │   │   ├── SS05-ACCESS-PDF2.png
-│   │   │   └── SS06-PDF2-CONTENTS.png
+│   │   ├── patient-report-2/                               # Decryption proof for Patient Report 2 (P. Reddy)
+│   │   │   ├── SS03-HASH-CALCULATOR-PDF2.png               # Extraction of PDF 2 password hash via Networkwalks tool
+│   │   │   ├── SS04-PASSWORD-CRACKED-PDF2.png              # Successful dictionary crack of PDF 2 password
+│   │   │   ├── SS05-ACCESS-PDF2.png                        # Unlocking Patient Report 2 using recovered password
+│   │   │   └── SS06-PDF2-CONTENTS.png                      # Decrypted pathology report contents for Patient 2
 │   │   │
-│   │   └── patient-report-3/
-│   │       ├── SS01-PDFCRACK-EXECUTION.png
-│   │       ├── SS02-PDF3-ACCESS.png
-│   │       └── SS03-PDF3-CONTENTS.png
+│   │   └── patient-report-3/                               # Decryption proof for Patient Report 3 (E. Thompson)
+│   │       ├── SS01-PDFCRACK-EXECUTION.png                 # PDFCrack terminal execution using the RockYou wordlist
+│   │       ├── SS02-PDF3-ACCESS.png                        # Unlocking Patient Report 3 using recovered password
+│   │       └── SS03-PDF3-CONTENTS.png                      # Decrypted pathology report contents for Patient 3
 │   │
-│   └── critical-data-exposure/
-│       ├── EMP-01.png
-│       └── SHR-01.png
+│   └── critical-data-exposure/                             # Evidence for Milestone 3 database backup data analysis
+│       ├── EMP-01.png                                      # Extracted staff table showing employee PII and salaries
+│       └── SHR-01.png                                      # Extracted shareholders table showing equity & share classes
 │
-├── report/
-│   ├── Executive-Summary.md
-│   ├── Scope-and-Methodology.md
-│   ├── Attack-Chain-Summary.md
-│   ├── Findings-and-Proof-of-Exploitation.md
-│   ├── Risk-Rating-Summary.md
-│   ├── Recommendations-and-Remediation.md
-│   ├── Conclusion.md
-│   └── Appendices.md
+├── report/                                                 # Modular sections composing the final deliverable report
+│   ├── Executive-Summary.md                                # High-level business risk overview for hospital leadership
+│   ├── Scope-and-Methodology.md                            # Rules of Engagement, target scope, and testing framework
+│   ├── Attack-Chain-Summary.md                             # End-to-end narrative linking recon to full data compromise
+│   ├── Findings-and-Proof-of-Exploitation.md               # Consolidated technical findings register and PoC walkthroughs
+│   ├── Risk-Rating-Summary.md                              # Severity breakdown, likelihood vs. impact scoring matrix
+│   ├── Recommendations-and-Remediation.md                  # Prioritized short-term, medium-term, and long-term fixes
+│   ├── Conclusion.md                                       # Final security posture assessment and sign-off statement
+│   └── Appendices.md                                       # Index of supporting logs, tool outputs, and reference tables
 │
-├── appendice/
-│   ├── Appendix-A-Sensitive-Validation-Evidence.md
-│   
-│   
-│   
-├── assets/
-│   ├── cover-image.png
-│   ├── attack-chain.png
-│   ├── risk-matrix.png
-│   └── methodology-diagram.png
+├── appendice/                                              # Supplementary validation data and raw technical artifacts
+│   └── Appendix-A-Sensitive-Validation-Evidence.md         # Redacted/sanitized validation records from exposed datasets
 │
-├── LICENSE
-└── .MIT
+├── assets/                                                 # Visual diagrams and branding graphics for documentation
+│   ├── cover-image.png                                     # Title banner graphic for the penetration test report
+│   ├── attack-chain.png                                    # Visual flowchart illustrating the multi-stage exploit path
+
+│   ├── risk-matrix.png                                     # Heatmap chart displaying finding severity distribution
+│   └── methodology-diagram.png                             # Diagram of the 4-milestone black-box testing workflow
+│
+├── LICENSE                                                 # Repository usage and distribution license terms
+└── .MIT                                                    # MIT License specification file
+
+
+
 ---
 ## 🔗 Engagement Phase Repositories
 
