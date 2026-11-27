@@ -1246,6 +1246,17 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 
 
 ---
+
+
+
+
+
+
+
+
+
+
+
 ## 🔗 Engagement Phase Repositories
 
 | Milestone / Phase | Repository Link | Scope Covered |
@@ -1260,6 +1271,16 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 
 
 ---
+
+
+
+
+
+
+
+
+
+
 
 ## 🔍 Summary of Findings
 
