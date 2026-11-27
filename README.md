@@ -1149,9 +1149,21 @@ Mediroza-Penetration-Test/
 │   ├── Milestone-3-Critical-Data-Exposure.md
 │   └── Milestone-4-Final-Report.md
 │
+├── findings/
+│   ├── F-001-Infrastructure-Intelligence.md
+│   ├── F-002-Server-Technology-Disclosure.md
+│   ├── F-003-Missing-SecurityTXT.md
+│   ├── F-004-RobotsTXT-Disclosure.md
+│   ├── F-005-Public-Database-Backup-Exposure.md
+│   ├── F-006-SQL-Injection-Authentication-Bypass.md
+│   ├── F-007-Staff-Portal-Authentication-Assessment.md
+│   ├── F-008-Weak-PDF-Password-Protection.md
+│   ├── F-009-Employee-Salary-Exposure.md
+│   └── F-010-Shareholder-Information-Exposure.md
+│
 ├── evidence/
 │
-│   ├── milestone-1-reconnaissance/
+│   ├── reconnaissance/
 │   │   ├── SS001-WHOIS.png
 │   │   ├── SS002-WHATWEB.png
 │   │   ├── SS003-NSLOOKUP.png
@@ -1159,7 +1171,7 @@ Mediroza-Penetration-Test/
 │   │   ├── SS005-WAFW00F.png
 │   │   └── SS006-DNSRECON.png
 │   │
-│   ├── milestone-1-application-mapping/
+│   ├── application-mapping/
 │   │   ├── SS007A-ROBOTS.png
 │   │   ├── SS007B-ROBOTS.png
 │   │   ├── SS008A-SITEMAP.png
@@ -1177,14 +1189,14 @@ Mediroza-Penetration-Test/
 │   │   ├── SS013A-PATIENT-FORM-HTML.png
 │   │   └── SS013B-STAFF-FORM-HTML.png
 │   │
-│   ├── milestone-1-initial-access/
+│   ├── initial-access/
 │   │   ├── SS014-PATIENT-LOGIN.png
 │   │   ├── SS014B-PDF-PATIENT-DISCOVERED.png
 │   │   ├── SS015-STAFF-LOGIN-FAIL.png
 │   │   ├── SS011B-OLD-DIRECTORY.png
 │   │   └── SS011C-DATABASE-BACKUP.png
 │   │
-│   ├── milestone-2-data-extraction/
+│   ├── data-extraction/
 │   │   │
 │   │   ├── patient-report-1/
 │   │   │   ├── SS03-HASH-CALCULATOR-PDF1.png
@@ -1203,36 +1215,33 @@ Mediroza-Penetration-Test/
 │   │       ├── SS02-PDF3-ACCESS.png
 │   │       └── SS03-PDF3-CONTENTS.png
 │   │
-│   └── milestone-3-data-exposure/
+│   └── critical-data-exposure/
 │       ├── EMP-01.png
 │       └── SHR-01.png
 │
-├── findings/
-│   ├── F-001-Infrastructure-Intelligence.md
-│   ├── F-002-Technology-Disclosure.md
-│   ├── F-003-Missing-SecurityTXT.md
-│   ├── F-004-RobotsTXT-Disclosure.md
-│   ├── F-005-Public-Database-Backup.md
-│   ├── F-006-SQL-Injection.md
-│   ├── F-007-Weak-PDF-Passwords.md
-│   ├── F-008-Employee-Record-Exposure.md
-│   └── F-009-Shareholder-Exposure.md
+├── report/
+│   ├── Executive-Summary.md
+│   ├── Scope-and-Methodology.md
+│   ├── Attack-Chain-Summary.md
+│   ├── Findings-and-Proof-of-Exploitation.md
+│   ├── Risk-Rating-Summary.md
+│   ├── Recommendations-and-Remediation.md
+│   ├── Conclusion.md
+│   └── Appendices.md
 │
+├── appendice/
+│   ├── Appendix-A-Sensitive-Validation-Evidence.md
+│   
+│   
+│   
 ├── assets/
 │   ├── cover-image.png
 │   ├── attack-chain.png
 │   ├── risk-matrix.png
 │   └── methodology-diagram.png
 │
-├── appendices/
-│   ├── Appendix-A-Evidence-Inventory.md
-│   ├── Appendix-B-Screenshot-Inventory.md
-│   ├── Appendix-C-Risk-Matrix.md
-│   └── Appendix-D-Tool-Inventory.md
-│
 ├── LICENSE
-└── .gitignore
-
+└── .MIT
 ---
 ## 🔗 Engagement Phase Repositories
 
