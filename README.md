@@ -1260,11 +1260,6 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 ## 🔗 Engagement Phase Repositories
 
 
-
-
-
-
-
 | Milestone / Phase | Repository Link | Scope Covered |
 | :--- | :--- | :--- |
 | **Milestone 1.1 — Reconnaissance** | [RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION](https://github.com/Zezanderson98/RECONNAISSANCE-AND-INTELLIGENCE-COLLECTION) | WHOIS, DNS, WAF detection, headers, `security.txt` |
@@ -1272,6 +1267,12 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 | **Milestone 1.3 — Initial Access & Auth** | [INITIAL-ACCESS-AND-AUTHENTICATION-TESTING](https://github.com/Zezanderson98/INITIAL-ACCESS-AND-AUTHENTICATION-TESTING) | Exposed DB backup, legacy directories, SQLi auth bypass |
 | **Milestone 2 — Data Extraction & Recovery** | [DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS](https://github.com/Zezanderson98/DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS) | Encrypted patient PDF hash extraction & password recovery |
 | **Milestone 3 — Critical Data Exposure** | [CRITICAL-DATA-EXPOSURE-ASSESSMENT](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) | Employee salary records & shareholder data exposure |
+
+
+
+
+
+
 
 
 
