@@ -1273,10 +1273,15 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 | **Milestone 2 — Data Extraction & Recovery** | [DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS](https://github.com/Zezanderson98/DATA-EXTRACTION-AND-RECOVERY-OF-ENCRYPTED-PATIENT-RECORDS) | Encrypted patient PDF hash extraction & password recovery |
 | **Milestone 3 — Critical Data Exposure** | [CRITICAL-DATA-EXPOSURE-ASSESSMENT](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) | Employee salary records & shareholder data exposure |
 
+
+
+
+
+
 ---
 
 
----
+
 
 
 
@@ -1308,7 +1313,24 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 | **F-010** | Shareholder Information Exposure | **CRITICAL** | [Critical Data Exposure Repo](https://github.com/Zezanderson98/CRITICAL-DATA-EXPOSURE-ASSESSMENT) |
 
 
+
+
+
+
+
+
+
+
+
+
+
 ---
+
+
+
+
+
+
 
 ## ⚠️ Disclaimer
 
