@@ -432,7 +432,7 @@ Sensitive Data Disclosure
 
 ### Evidence
 
-- SS016-OLD-DIRECTORY.png
+- SS011B-OLD-DIRECTORY.png
 
 <img width="1366" height="768" alt="OLD PAGE" src="https://github.com/user-attachments/assets/66cddf84-5f83-4012-b0ed-3710eec0f306" />
 
@@ -441,7 +441,7 @@ Sensitive Data Disclosure
 
 
 
-- SS017-DATABASE-BACKUP.png
+- SS011C-DATABASE-BACKUP.png
 
 
 
@@ -498,7 +498,7 @@ Testing demonstrated that authentication could be bypassed, resulting in unautho
 
 ### Evidence
 
-- SS018-PATIENT-PORTAL.png
+- SS010C-PATIENT-PORTAL-LOGIN.png
 
 <img width="1366" height="768" alt="PATIENT PORTAL 11" src="https://github.com/user-attachments/assets/ec754e28-9498-44e3-89af-8fca5c33cbde" />
 
@@ -530,7 +530,7 @@ Testing demonstrated that authentication could be bypassed, resulting in unautho
 
 
 
-- PDF-PATIENT-DISCOVERED.png
+- SS014B-PDF-PATIENT-DISCOVERED.png
 
 
 
