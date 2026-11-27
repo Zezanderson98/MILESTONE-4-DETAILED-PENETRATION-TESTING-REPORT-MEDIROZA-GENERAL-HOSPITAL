@@ -1136,82 +1136,10 @@ The contents of this appendix are included solely for assessment validation purp
 
 ---
 ## REPOSITORY STRUCTURE
-```text
+
 Mediroza-Penetration-Test/
 │
 ├── README.md
-│
-├── report/
-│   ├── 01-Executive-Summary.md
-│   ├── 02-Scope-and-Methodology.md
-│   ├── 03-Attack-Chain-Summary.md
-│   ├── 04-Findings-and-Proof-of-Exploitation.md
-│   ├── 05-Risk-Rating-Summary.md
-│   ├── 06-Recommendations-and-Remediation.md
-│   ├── 07-Conclusion.md
-│   └── Appendix-A-Sensitive-Validation-Evidence.md
-│
-├── evidence/
-│
-│   ├── reconnaissance/
-│   │   ├── SS001-WHOIS.png
-│   │   ├── SS002-WHATWEB.png
-│   │   ├── SS003-NSLOOKUP.png
-│   │   ├── SS004-CURL-I.png
-│   │   ├── SS005-WAFW00F.png
-│   │   ├── SS006-DNSRECON.png
-│   │   └── SS009-SECURITYTXT.png
-│   │
-│   ├── application-mapping/
-│   │   ├── SS007-ROBOTS.png
-│   │   ├── SS008A-SITEMAP.png
-│   │   ├── SS08B-SITE-MAP.png
-│   │   
-│   │   ├── SS012-GOBUSTER.png
-│   │   └── SS013-WHATWEB-FORMS.png
-│   │
-│   ├── initial-access/
-│   │   ├── SS014-PATIENT-LOGIN.png
-│   │   ├── SS015-STAFF-LOGIN.png
-│   │   ├── SS016-OLD-DIRECTORY.png
-│   │   ├── SS017-DATABASE-BACKUP.png
-│   │   ├── SS018-PATIENT-PORTAL.png
-│   │   ├── PDF-PATIENT-DISCOVERED.png
-│   │   
-│   │
-│   ├── milestone-2/
-│   │   │
-│   │   ├── patient-report-1/
-│   │   │   ├── SS03-COPY-HASH-PATIENT-PDF-1.png
-│   │   │   ├── SS07-PDF-PASSWORD-FOR-PATIENT-1.png
-│   │   │   ├── SS08-ACCESSING-PDF-1.png
-│   │   │   └── SS09-PDF-1-ACCESSED.png
-│   │   │
-│   │   ├── patient-report-2/
-│   │   │   ├── SS03-COPY-HASH-PATIENT-PDF-2.png
-│   │   │   ├── SS07-PDF-PASSWORD-FOR-PATIENT-2.png
-│   │   │   ├── SS08-ACCESSING-PDF-2.png
-│   │   │   └── SS09-PDF-2-ACCESSED.png
-│   │   │
-│   │   └── patient-report-3/
-│   │       ├── SS01-PDFCRACK-ROCKYOU.png
-│   │       ├── SS02-ACCESSING-PDF-3.png
-│   │       └── SS03-PDF-3-ACCESSED.png
-│   │
-│   └── milestone-3/
-│       ├── EMP-01.png
-│       └── SHR-01.png
-│
-├── findings/
-│   ├── F-001-Infrastructure-Intelligence.md
-│   ├── F-002-Server-Technology-Disclosure.md
-│   ├── F-003-Missing-SecurityTXT.md
-│   ├── F-004-RobotsTXT-Disclosure.md
-│   ├── F-005-Public-Database-Backup.md
-│   ├── F-006-SQL-Injection-Authentication-Bypass.md
-│   ├── F-007-Weak-PDF-Password-Protection.md
-│   ├── F-008-Employee-Salary-Exposure.md
-│   └── F-009-Shareholder-Exposure.md
 │
 ├── milestones/
 │   ├── Milestone-1-Reconnaissance.md
@@ -1221,14 +1149,89 @@ Mediroza-Penetration-Test/
 │   ├── Milestone-3-Critical-Data-Exposure.md
 │   └── Milestone-4-Final-Report.md
 │
+├── evidence/
+│
+│   ├── milestone-1-reconnaissance/
+│   │   ├── SS001-WHOIS.png
+│   │   ├── SS002-WHATWEB.png
+│   │   ├── SS003-NSLOOKUP.png
+│   │   ├── SS004-CURL-I.png
+│   │   ├── SS005-WAFW00F.png
+│   │   └── SS006-DNSRECON.png
+│   │
+│   ├── milestone-1-application-mapping/
+│   │   ├── SS007A-ROBOTS.png
+│   │   ├── SS007B-ROBOTS.png
+│   │   ├── SS008A-SITEMAP.png
+│   │   ├── SS008B-SITEMAP.png
+│   │   ├── SS009-SECURITYTXT.png
+│   │   ├── SS009B-HOMEPAGE.png
+│   │   ├── SS010-ABOUT.png
+│   │   ├── SS010A-DOCTORS.png
+│   │   ├── SS010B-CONTACTS.png
+│   │   ├── SS010C-PATIENT-PORTAL-LOGIN.png
+│   │   ├── SS011-STAFF-LOGIN-PORTAL.png
+│   │   ├── SS011B-OLD-DIRECTORY.png
+│   │   ├── SS012-GOBUSTER.png
+│   │   ├── SS013-WHATWEB-FORMS.png
+│   │   ├── SS013A-PATIENT-FORM-HTML.png
+│   │   └── SS013B-STAFF-FORM-HTML.png
+│   │
+│   ├── milestone-1-initial-access/
+│   │   ├── SS014-PATIENT-LOGIN.png
+│   │   ├── SS014B-PDF-PATIENT-DISCOVERED.png
+│   │   ├── SS015-STAFF-LOGIN-FAIL.png
+│   │   ├── SS011B-OLD-DIRECTORY.png
+│   │   └── SS011C-DATABASE-BACKUP.png
+│   │
+│   ├── milestone-2-data-extraction/
+│   │   │
+│   │   ├── patient-report-1/
+│   │   │   ├── SS03-HASH-CALCULATOR-PDF1.png
+│   │   │   ├── SS04-PASSWORD-CRACKED-PDF1.png
+│   │   │   ├── SS05-ACCESS-PDF1.png
+│   │   │   └── SS06-PDF1-CONTENTS.png
+│   │   │
+│   │   ├── patient-report-2/
+│   │   │   ├── SS03-HASH-CALCULATOR-PDF2.png
+│   │   │   ├── SS04-PASSWORD-CRACKED-PDF2.png
+│   │   │   ├── SS05-ACCESS-PDF2.png
+│   │   │   └── SS06-PDF2-CONTENTS.png
+│   │   │
+│   │   └── patient-report-3/
+│   │       ├── SS01-PDFCRACK-EXECUTION.png
+│   │       ├── SS02-PDF3-ACCESS.png
+│   │       └── SS03-PDF3-CONTENTS.png
+│   │
+│   └── milestone-3-data-exposure/
+│       ├── EMP-01.png
+│       └── SHR-01.png
+│
+├── findings/
+│   ├── F-001-Infrastructure-Intelligence.md
+│   ├── F-002-Technology-Disclosure.md
+│   ├── F-003-Missing-SecurityTXT.md
+│   ├── F-004-RobotsTXT-Disclosure.md
+│   ├── F-005-Public-Database-Backup.md
+│   ├── F-006-SQL-Injection.md
+│   ├── F-007-Weak-PDF-Passwords.md
+│   ├── F-008-Employee-Record-Exposure.md
+│   └── F-009-Shareholder-Exposure.md
+│
 ├── assets/
 │   ├── cover-image.png
 │   ├── attack-chain.png
-│   └── risk-matrix.png
+│   ├── risk-matrix.png
+│   └── methodology-diagram.png
 │
-└── LICENSE
-```
-
+├── appendices/
+│   ├── Appendix-A-Evidence-Inventory.md
+│   ├── Appendix-B-Screenshot-Inventory.md
+│   ├── Appendix-C-Risk-Matrix.md
+│   └── Appendix-D-Tool-Inventory.md
+│
+├── LICENSE
+└── .gitignore
 
 ---
 ## 🔗 Engagement Phase Repositories
