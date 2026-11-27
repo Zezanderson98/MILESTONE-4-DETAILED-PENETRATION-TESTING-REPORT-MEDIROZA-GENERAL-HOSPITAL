@@ -1329,11 +1329,151 @@ Mediroza-Penetration-Test/                                  # Root repository fo
 
 
 
+---
 
+## 🔐 Security & Ethical Use
 
+This repository documents an authorized black-box penetration testing engagement conducted against **Mediroza General Hospital** within the approved NetworkWalks laboratory environment.
 
+All testing activities were performed under authorized assessment conditions and within the defined Rules of Engagement. The purpose of this repository is to document professional penetration testing methodology, evidence collection, vulnerability validation, risk assessment, and remediation recommendations.
+
+The contents of this repository are provided strictly for:
+
+- Educational purposes
+- Cybersecurity research
+- Professional portfolio development
+- Defensive security awareness
+- Penetration testing documentation
+
+Unauthorized scanning, exploitation, or testing of systems without explicit permission from the system owner may violate applicable laws and regulations.
+
+---
+
+## 🔗 Tools & Resources
+
+### Assessment Environment
+
+- **Primary Platform:** Kali Linux Workstation
+- **Assessment Framework:** NetworkWalks Authorized Penetration Testing Lab
+
+### Reconnaissance & Intelligence Collection
+
+- `whois`
+- `nslookup`
+- `dnsrecon`
+- `whatweb`
+- `curl`
+- `wafw00f`
+
+### Application Mapping & Surface Discovery
+
+- `gobuster`
+- `whatweb`
+- Manual Browser Enumeration
+
+### Authentication Assessment
+
+- SQL Injection Testing
+- Session Validation
+- Access Control Verification
+
+### Data Extraction & Password Recovery
+
+- NetworkWalks Hash Calculator
+- NetworkWalks Password Cracker
+- PDFCrack
+- RockYou Wordlist
+
+### Documentation & Reporting
+
+- GitHub
+- Markdown
+
+---
+
+## 👤 Author
+
+**Anderson Edaiyo Uzezi**  
+Cybersecurity Professional B084
+
+**LinkedIn:**  
+https://www.linkedin.com/in/anderson-edaiyo-bab74117b
+
+---
+
+## 📊 Assessment Information Matrix
+
+> **Note:**
+>
+> This repository contains the complete documentation, evidence, screenshots, attack-path analysis, findings, and final deliverables produced during the authorized penetration testing assessment of Mediroza General Hospital.
+
+| Assessment Parameter | Value |
+| :--- | :--- |
+| **Client** | Mediroza General Hospital |
+| **Assessment Type** | Black-Box Penetration Test |
+| **Target** | https://medirozahospital.com |
+| **Pentester** | Anderson Edaiyo Uzezi |
+| **Testing Methodology** | Reconnaissance → Application Mapping → Initial Access → Data Extraction → Data Exposure Assessment |
+| **Total Findings** | 10 |
+| **Informational Findings** | 3 |
+| **Low Findings** | 2 |
+| **High Findings** | 1 |
+| **Critical Findings** | 4 |
+| **Overall Risk Rating** | CRITICAL |
+| **Report Classification** | Confidential |
+| **Engagement Status** | Complete |
+
+---
+
+## 📈 Assessment Coverage
+
+| Milestone | Scope |
+| :--- | :--- |
+| **Milestone 1.1** | Reconnaissance & Intelligence Collection |
+| **Milestone 1.2** | Application Mapping & Surface Discovery |
+| **Milestone 1.3** | Initial Access & Authentication Testing |
+| **Milestone 2** | Data Extraction & Recovery of Encrypted Patient Records |
+| **Milestone 3** | Critical Data Exposure Assessment |
+| **Milestone 4** | Final Penetration Testing Report |
+
+---
+
+## ✅ Assessment Outcome
+
+| Objective | Status |
+| :--- | :--- |
+| Reconnaissance Completed | ✅ |
+| Attack Surface Mapped | ✅ |
+| Authentication Testing Completed | ✅ |
+| SQL Injection Identified | ✅ |
+| Unauthorized Portal Access Obtained | ✅ |
+| Protected PDF Recovery Completed | ✅ |
+| Database Backup Exposure Confirmed | ✅ |
+| Employee Record Exposure Validated | ✅ |
+| Shareholder Record Exposure Validated | ✅ |
+| Final Risk Analysis Completed | ✅ |
+| Remediation Recommendations Delivered | ✅ |
+
+---
 
 ## ⚠️ Disclaimer
 
-This assessment was performed strictly within an authorized educational/lab environment for defensive security reporting and portfolio demonstration purposes.
+This assessment was conducted strictly within an authorized educational environment for defensive security assessment, penetration testing practice, and professional portfolio demonstration purposes.
+
+No testing was conducted against external systems without authorization. The vulnerabilities, attack paths, screenshots, and findings documented in this repository are presented solely to demonstrate security assessment methodology and reporting practices.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
